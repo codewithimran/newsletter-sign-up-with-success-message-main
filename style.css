@@ -1,0 +1,237 @@
+:root {
+    --tomato: hsl(4, 100%, 67%);
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(./assets/fonts/Roboto-Bold.ttf);
+    src: url(./assets/fonts/Roboto-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    background-color: var(--dark-slate-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.news__letter {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    width: min(850px, 100%);
+    margin-inline: auto;
+    padding: 1rem;
+    visibility: visible;
+    opacity: 1;
+    transition: .35s ease-out;
+}
+
+.news__letter.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.news__letter > .news__content {
+    flex-basis: 50%;
+    padding-inline: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.news__content h1 {
+    color: var(--dark-slate-grey);
+    font-weight: bold;
+    font-size: calc(1.5rem + 2vw);
+    margin-bottom: .5rem;
+}
+
+.news__content p {
+    color: var(--dark-slate-grey);
+    margin-block: 1rem;
+}
+
+.news__content .list {
+    list-style: none;
+}
+
+.news__content .list li {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-block: .5rem;
+    color: var(--dark-slate-grey);
+}
+
+.news__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+
+.news__form label {
+    color: var(--dark-slate-grey);
+    font-weight: bold;
+    font-size: .8rem;
+    margin-bottom: .2rem;
+}
+.news__form input {
+    border: 1px solid var(--grey);
+    padding: .8rem .85rem;
+    outline: none;
+    border-radius: .3rem;
+    color: var(--dark-slate-grey);
+    transition: .35s ease-in-out;
+}
+
+.news__form input:focus {
+    border: 1px solid var(--dark-slate-grey);
+    transition: .35s ease-in-out;
+}
+
+.news__form button {
+    background-color: var(--dark-slate-grey);
+    border: 1px solid var(--grey);
+    padding: .8rem .85rem;
+    outline: none;
+    border-radius: .3rem;
+    color: var(--white);
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: .35s ease-in-out;
+}
+
+.news__form button:is(:hover, :focus) {
+    background-color: var(--tomato);
+    border: 1px solid var(--tomato);
+}
+
+.news__letter > .news__image {
+    flex-basis: 50%;
+}
+
+.news__letter > .news__image img {
+    width: 100%;
+}
+
+.success__message {
+    background-color: var(--white);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 1rem;
+    width: min(450px, 100%);
+    margin-inline: auto;
+    padding: 1.5rem 2.5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    z-index: 9999;
+    transition: .45s ease-out;
+}
+
+.success__message.hide {
+   opacity: 0;
+    visibility: hidden;
+}
+
+.success__message img {
+    width: 50px;
+    margin-bottom: .8rem;
+}
+
+.success__message h1 {
+    font-size: calc(1rem + 2vw);
+    line-height: 1;
+    color: var(--dark-slate-grey);
+}
+
+.success__message p {
+    color: var(--charcoal-grey);
+    margin-block: .6rem;
+}
+
+.success__message p > b {
+    color: var(--dark-slate-grey);
+}
+
+.success__message button {
+    background-color: var(--dark-slate-grey);
+    border: 1px solid var(--grey);
+    padding: .8rem .85rem;
+    outline: none;
+    border-radius: .3rem;
+    color: var(--white);
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: .35s ease-in-out;
+}
+
+.success__message button:is(:hover, :focus) {
+    background-color: var(--tomato);
+    border: 1px solid var(--tomato);
+    box-shadow: 5px 5px 20px 2px var(--tomato);
+}
+
+.mobile-hide {
+    display: none;
+    visibility: hidden;
+}
+
+.desktop-hide {
+    display: block;
+    visibility: visible;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e8e8e8;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 1rem;
+}
+
+
+@media (max-width: 768px) {
+
+    .mobile-hide {
+        display: block;
+        visibility: visible;
+        width:  100%;
+    }
+
+    .desktop-hide {
+        display: none;
+        visibility: hidden;
+    }
+
+    .news__letter {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+}
